@@ -1,24 +1,24 @@
 const express = require('express');
-const helmet = require('helmet');
 const cors = require('cors');
-require('dotenv').config();
+const helmet = require('helmet');
 
 const app = express();
 
-app.use(cors()); // <--- ¡Agrégalo aquí para habilitar las peticiones externas!
+// 1. Middlewares de seguridad y parseo
+app.use(cors());
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(express.static('.')); 
-app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ limit: '1mb', extended: true }));
-// URL de tu Web App de Google Apps Script vinculada a tu Google Sheet
-const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbysrV8NHeG6ltJh_E8Tt3VaJHVJ8uXBt95Qba-K_knY5Io7WHFNDtbDOaH7WbZ_GyWp1A/exec";
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Ruta de prueba
+// URL de tu Google Apps Script vinculada a Google Sheets
+const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbwxlzV1h8v15v230s3Q158o4c3aZ0a82K98o/exec";
+
+// Ruta de prueba GET
 app.get('/', (req, res) => {
-    res.send('Servidor UNIVER con Google Sheets funcionando');
+    res.send("Servidor UNIVER con Google Sheets funcionando");
 });
 
-// Ruta de Validación conectada a Google Sheets
+// 2. Ruta de validación conectada a Google Sheets (DEBE IR ANTES DE LOS ESTÁTICOS)
 app.post('/api/validar', async (req, res) => {
     try {
         const { codigo } = req.body;
@@ -30,7 +30,7 @@ app.post('/api/validar', async (req, res) => {
         const respuestaGoogle = await fetch(GOOGLE_SCRIPT_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ matricula: codigo })
+            body: JSON.stringify({ codigo })
         });
 
         const resultado = await respuestaGoogle.json();
@@ -39,19 +39,18 @@ app.post('/api/validar', async (req, res) => {
             return res.json({ valido: false, mensaje: "Credencial no encontrada" });
         }
 
-        const alumno = resultado.data;
+        const alumno = resultado.datos;
 
-        if (String(alumno.estado).toLowerCase() === 'inactivo' || String(alumno.estado).toLowerCase() === 'inactiva') {
+        if (String(alumno.estado).toLowerCase() === "inactivo") {
             return res.json({ valido: false, mensaje: "Esta credencial está inactiva" });
         }
 
         res.json({
             valido: true,
-            nombre: `${alumno.nombre} ${alumno.apellido}`,
+            nombre: `${alumno.nombre} ${alumno.apellidos}`,
             matricula: alumno.matricula,
             carrera: alumno.carrera,
             campus: alumno.campus,
-            aula: alumno.aula,
             foto: alumno.fotografia
         });
 
@@ -61,6 +60,10 @@ app.post('/api/validar', async (req, res) => {
     }
 });
 
+// 3. Archivos estáticos al final para que no intercepten las rutas de la API
+app.use(express.static(__dirname));
+
+// Puerto dinámico para Railway
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
