@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniverPass | Credencial</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <a class="marca" href="index.html"><img src="UniverPass.png" alt="Logo de UniverPass" class="logo-imagen" onerror="this.hidden=true"></a>
+    <a class="enlace-regreso" href="index.html">← Inicio</a>
+  </header>
+  <main class="contenido-principal">
+    <section class="panel panel-credencial">
+      <div class="titulo-seccion"><div><h1>Tu credencial está lista</h1><p>Frente y reverso de tu UniverPass.</p></div></div>
+      <div id="credencial" class="credencial-set credencial-plantilla-set">
+        <article id="credencialFrente" class="credencial-plantilla frente tipo-alumno">
+          <img class="plantilla-fondo" src="assets/credencial-frente.jpg" alt="">
+          
+          <img id="credFoto" class="plantilla-foto" alt="Fotografía del usuario">
+          <div class="plantilla-datos-frente">
+            <h2 id="credNombre">—</h2>
+            <p class="plantilla-id">ID: <span id="credMatriculaFrente">—</span></p>
+            <p id="credCarrera" class="plantilla-carrera">—</p>
+          </div>
+          <img id="credFirmaAlumno" class="plantilla-firma-alumno" alt="Firma del alumno">
+          <div class="plantilla-ciclo"><span>Ciclo</span><strong>3-2026</strong></div>
+        </article>
+
+        <article id="credencialReverso" class="credencial-plantilla reverso tipo-alumno">
+          <img class="plantilla-fondo" src="assets/credencial-reverso.jpg" alt="">
+          <div class="capa-color capa-color-reverso" aria-hidden="true"></div>
+          <div id="codigoQr" class="plantilla-qr"></div>
+          <div class="plantilla-datos-reverso">
+            <p class="dato correo"><span id="credCorreo">—</span></p>
+            <p class="dato matricula"><span id="credContactoAlumno">—</span></p>
+            <p class="dato emergencia"><span id="credContactoEmergencia">—</span></p>
+          </div>
+          <div class="plantilla-firma-direccion" aria-label="Espacio para firma de dirección"></div>
+        </article>
+      </div>
+      <p id="tipoUsuario" class="etiqueta-tipo">ALUMNO</p>
+      <p id="sinDatos" class="mensaje error" hidden>No hay datos guardados. Primero crea una credencial.</p>
+      <div class="acciones"><a class="boton-pequeno boton-claro" href="crear-credencial.html">Editar datos</a><button id="descargarCredencial" class="boton-pequeno boton-principal" type="button">Descargar credencial</button></div>
+    </section>
+  </main>
+  <footer class="pie-pagina"><span>Protección de datos activa</span><span class="reloj"></span></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="js/common.js"></script><script src="js/credencial.js"></script>
+</body>
+</html>

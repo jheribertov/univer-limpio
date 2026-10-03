@@ -1,0 +1,987 @@
+:root {
+    --azul-principal: #00659d;
+    --azul-secundario: #0097c8;
+    --azul-claro: #e9f7fc;
+    --texto: #18324a;
+    --texto-suave: #658092;
+    --borde: #d3e3ed;
+    --blanco: #ffffff;
+}
+
+/* Configuración general */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at top left, rgba(0, 120, 190, 0.16), transparent 35%),
+        linear-gradient(135deg, #f5f9fc, #e9f2f8);
+}
+
+/* Encabezado */
+.encabezado {
+    width: 100%;
+    min-height: 100px;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--blanco);
+    border-bottom: 1px solid #dce8ef;
+    box-shadow: 0 4px 15px rgba(22, 55, 78, 0.08);
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo-imagen {
+    width: 150px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.marca strong {
+    color: var(--azul-principal);
+    font-size: 25px;
+}
+
+.marca p {
+    margin-top: 4px;
+    color: #557184;
+    font-size: 15px;
+}
+
+.estado-sistema {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #16834b;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ebfff3;
+    border: 1px solid #bce8cd;
+    border-radius: 50px;
+}
+
+.punto-verde {
+    width: 10px;
+    height: 10px;
+    background-color: #25b967;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(37, 185, 103, 0.14);
+}
+
+.enlace-regreso {
+    color: var(--azul-principal);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.enlace-regreso:hover {
+    text-decoration: underline;
+}
+
+/* Contenido y paneles */
+.contenido-principal {
+    flex: 1;
+    width: 100%;
+    padding: 45px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-formulario {
+    align-items: flex-start;
+}
+
+.panel {
+    width: 100%;
+    max-width: 980px;
+    padding: 50px 45px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(211, 227, 237, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(27, 68, 94, 0.13);
+}
+
+.panel-inicio {
+    max-width: 900px;
+    min-height: 390px;
+    padding: 65px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.instruccion {
+    width: 100%;
+    margin-bottom: 40px;
+    color: var(--texto-suave);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.titulo-seccion {
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.titulo-seccion h1 {
+    margin-bottom: 6px;
+    color: #153e5a;
+    font-size: 29px;
+}
+
+.titulo-seccion p {
+    color: var(--texto-suave);
+}
+
+.paso {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    display: grid;
+    place-items: center;
+    color: var(--blanco);
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
+    border-radius: 50%;
+}
+
+/* Botones de inicio */
+.botones-index {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.boton {
+    width: 330px;
+    min-height: 165px;
+    padding: 28px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 20px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.boton small {
+    font-size: 13px;
+    font-weight: normal;
+    opacity: 0.88;
+}
+
+.icono-boton {
+    font-size: 42px;
+}
+
+.boton-principal {
+    color: var(--blanco);
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
+    border: 2px solid transparent;
+    box-shadow: 0 10px 24px rgba(0, 101, 157, 0.25);
+}
+
+.boton-secundario,
+.boton-claro {
+    color: #07577f;
+    background: linear-gradient(135deg, #effaff, #dceff8);
+    border: 2px solid #8dcde3;
+    box-shadow: 0 10px 24px rgba(25, 113, 151, 0.12);
+}
+
+.boton:hover,
+.boton-pequeno:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.05);
+}
+
+.boton-principal:hover {
+    box-shadow: 0 16px 30px rgba(0, 101, 157, 0.33);
+}
+
+.boton-secundario:hover,
+.boton-claro:hover {
+    box-shadow: 0 16px 30px rgba(25, 113, 151, 0.2);
+}
+
+.boton:active,
+.boton-pequeno:active {
+    transform: translateY(-1px);
+}
+
+.boton:focus-visible,
+.boton-pequeno:focus-visible {
+    outline: 4px solid rgba(0, 151, 200, 0.25);
+    outline-offset: 4px;
+}
+
+.boton-pequeno {
+    min-height: 48px;
+    padding: 12px 23px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.boton-texto {
+    align-self: flex-start;
+    padding: 5px 0;
+    color: var(--azul-principal);
+    font-weight: bold;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.acciones {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Formulario */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 23px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo label,
+.consulta-manual label {
+    color: #25465c;
+    font-weight: bold;
+}
+
+.campo input,
+.consulta-manual input {
+    width: 100%;
+    padding: 14px 15px;
+    color: var(--texto);
+    font: inherit;
+    background-color: #fbfdfe;
+    border: 1px solid #b9ceda;
+    border-radius: 10px;
+}
+
+.campo input:focus,
+.consulta-manual input:focus {
+    outline: 3px solid rgba(0, 151, 200, 0.18);
+    border-color: var(--azul-secundario);
+}
+
+.bloque-captura {
+    padding: 20px;
+    background-color: #f5fafc;
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+}
+
+.captura-foto {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.camara-registro {
+    position: relative;
+    width: 320px;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #f2f9ff;
+    background-color: #2a2e31;
+    border: 3px solid #1e73be;
+    border-radius: 14px;
+}
+
+.camara-registro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#camaraFotoInactiva {
+    position: absolute;
+}
+
+.acciones-foto {
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.foto-preview {
+    width: 145px;
+    height: 170px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #79909e;
+    background-color: #e5eff4;
+    border: 2px dashed #a9c2cf;
+    border-radius: 12px;
+}
+
+.foto-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ayuda {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+#lienzoFirma {
+    width: 100%;
+    height: 180px;
+    background-color: var(--blanco);
+    border: 2px dashed #a9c2cf;
+    border-radius: 12px;
+    touch-action: none;
+}
+
+.mensaje {
+    min-height: 20px;
+    color: #167146;
+    font-weight: bold;
+}
+
+.error {
+    color: #2a2e31;
+}
+
+.advertencia {
+    padding: 13px 15px;
+    color: #2a2e31;
+    background-color: #e8a921;
+    border-radius: 10px;
+}
+
+/* Credencial */
+.panel-credencial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panel-credencial .titulo-seccion {
+    align-self: flex-start;
+}
+
+.credencial {
+    width: 100%;
+    max-width: 780px;
+    overflow: hidden;
+    background-color: var(--blanco);
+    border: 1px solid #b9d4e2;
+    border-radius: 22px;
+    box-shadow: 0 14px 30px rgba(16, 72, 103, 0.17);
+}
+
+.credencial-cabecera {
+    padding: 19px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--blanco);
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
+}
+
+.credencial-cabecera strong {
+    font-size: 26px;
+}
+
+.logo-credencial {
+    width: 145px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.credencial-cuerpo {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+    align-items: center;
+    gap: 25px;
+}
+
+.credencial-foto {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    background-color: #e6eff4;
+    border-radius: 12px;
+}
+
+.credencial-datos h2 {
+    margin-bottom: 15px;
+    color: var(--azul-principal);
+}
+
+.credencial-datos p {
+    margin: 8px 0;
+}
+
+.credencial-firma {
+    width: 170px;
+    height: 52px;
+    margin-top: 15px;
+    object-fit: contain;
+    object-position: left;
+}
+
+.qr {
+    width: 150px;
+    min-height: 150px;
+    display: grid;
+    place-items: center;
+}
+
+.qr img {
+    max-width: 100%;
+}
+
+/* Kiosco */
+.panel-kiosco {
+    max-width: 760px;
+}
+
+.visor {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #718895;
+    background-color: #19313e;
+    border-radius: 18px;
+}
+
+.visor video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.marco-qr {
+    position: absolute;
+    width: 52%;
+    aspect-ratio: 1;
+    border: 4px solid var(--blanco);
+    border-radius: 18px;
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.22);
+}
+
+#camaraInactiva {
+    position: absolute;
+    color: var(--blanco);
+}
+
+.separador {
+    margin: 28px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--texto-suave);
+}
+
+.separador::before,
+.separador::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background-color: var(--borde);
+}
+
+.consulta-manual {
+    max-width: 540px;
+    margin: auto;
+}
+
+.consulta-manual > div {
+    margin-top: 9px;
+    display: flex;
+    gap: 10px;
+}
+
+.consulta-manual input {
+    flex: 1;
+}
+
+/* Datos del aula */
+.resumen-alumno {
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--azul-claro);
+    border-radius: 16px;
+}
+
+.resumen-alumno img {
+    width: 95px;
+    height: 110px;
+    object-fit: cover;
+    background-color: #dbe9f0;
+    border-radius: 10px;
+}
+
+.etiqueta,
+.datos-aula span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.datos-aula {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.datos-aula > div {
+    padding: 20px;
+    background-color: #fbfdfe;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+}
+
+.datos-aula strong {
+    font-size: 18px;
+}
+
+/* Pie de página */
+.pie-pagina {
+    width: 100%;
+    min-height: 65px;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: #62798a;
+    font-size: 14px;
+    background-color: var(--blanco);
+    border-top: 1px solid #dce8ef;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 760px) {
+    .encabezado {
+        padding: 18px 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .marca {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .logo-imagen {
+        width: 135px;
+    }
+
+    .contenido-principal {
+        padding: 30px 16px;
+    }
+
+    .panel,
+    .panel-inicio {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    .instruccion {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
+    .botones-index {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .boton {
+        width: 100%;
+        max-width: 350px;
+        min-height: 145px;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .campo {
+        grid-column: 1 / -1;
+    }
+
+    .credencial-cuerpo {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .credencial-foto,
+    .qr {
+        margin: auto;
+    }
+
+    .credencial-firma {
+        object-position: center;
+    }
+
+    .consulta-manual > div {
+        flex-direction: column;
+    }
+
+    .datos-aula {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-pagina {
+        padding: 18px 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ===== Ajustes responsive y de identidad UniverPass ===== */
+body {
+    background: linear-gradient(145deg, var(--azul-principal), #004f7d);
+}
+
+.logo-imagen {
+    width: 220px;
+    max-height: 82px;
+}
+
+/* Cámara de registro: encuadre compacto para rostro */
+.captura-foto {
+    justify-content: center;
+}
+
+.camara-registro {
+    width: 220px;
+    height: 270px;
+    aspect-ratio: auto;
+    border-radius: 16px;
+}
+
+.camara-registro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.guia-rostro {
+    position: absolute;
+    width: 62%;
+    height: 72%;
+    border: 2px dashed rgba(255,255,255,.9);
+    border-radius: 50% 50% 44% 44%;
+    pointer-events: none;
+    box-shadow: 0 0 0 999px rgba(0,0,0,.12);
+}
+
+.foto-preview {
+    width: 130px;
+    height: 160px;
+}
+
+.acciones-foto {
+    justify-content: center;
+}
+
+/* Credencial: franja lateral según tipo de matrícula */
+.credencial {
+    position: relative;
+    padding-left: 16px;
+}
+
+.franja-tipo {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 16px;
+    background: var(--azul-principal);
+}
+
+.credencial.tipo-alumno .franja-tipo { background: #00659d; }
+.credencial.tipo-administrativo .franja-tipo { background: #e8a921; }
+.credencial.tipo-academico .franja-tipo { background: #d92d2d; }
+
+.acciones-kiosco {
+    margin-top: 16px;
+}
+
+/* Espaciado uniforme en tablet y celular */
+@media (max-width: 760px) {
+    .encabezado {
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .logo-imagen {
+        width: min(240px, 78vw);
+        max-height: 90px;
+    }
+
+    .contenido-principal {
+        padding: 24px 16px;
+        align-items: flex-start;
+    }
+
+    .panel,
+    .panel-inicio {
+        width: 100%;
+        padding: 28px 18px;
+        margin: 0 auto;
+        border-radius: 18px;
+    }
+
+    .titulo-seccion,
+    .titulo-seccion > div,
+    .campo,
+    .bloque-captura {
+        width: 100%;
+    }
+
+    .titulo-seccion {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .formulario {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .captura-foto {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .camara-registro {
+        width: min(210px, 72vw);
+        height: min(260px, 88vw);
+    }
+
+    .acciones,
+    .acciones-foto {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .credencial {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .credencial-cabecera {
+        padding: 16px 18px;
+        gap: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .credencial-cuerpo {
+        padding: 24px 18px;
+        justify-items: center;
+        gap: 20px;
+    }
+
+    .credencial-datos {
+        width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .visor {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 420px) {
+    .contenido-principal { padding: 18px 12px; }
+    .panel, .panel-inicio { padding: 24px 14px; }
+    .bloque-captura { padding: 16px 12px; }
+    .boton-pequeno { width: 100%; }
+    .credencial { padding-left: 12px; }
+    .franja-tipo { width: 12px; }
+}
+
+/* ===== Credencial vertical basada en el diseño institucional ===== */
+.credencial-set{display:flex;gap:28px;justify-content:center;align-items:flex-start;flex-wrap:wrap;width:100%;}
+.credencial-vertical{--tipo:#0b5f98;position:relative;width:360px;height:570px;overflow:hidden;background:#fff;color:#071d47;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,.18);font-family:Arial,Helvetica,sans-serif;}
+.credencial-vertical.tipo-alumno{--tipo:#0b5f98}.credencial-vertical.tipo-administrativo{--tipo:#f0b72f}.credencial-vertical.tipo-academico{--tipo:#ed1c24}
+.franja-curva{position:absolute;left:0;top:0;width:36px;height:278px;background:var(--tipo)!important;border-radius:0 0 55% 0;z-index:2}.franja-curva:after{content:"";position:absolute;left:20px;top:0;width:14px;height:235px;background:rgba(255,255,255,.18);border-radius:0 0 80% 0}
+.wordmark{position:absolute;top:43px;left:58px;right:30px;font-weight:900;font-size:29px;letter-spacing:.2px;color:#082a61;line-height:.8}.wordmark>span{font-size:18px;margin-left:2px}.wordmark small{display:block;margin-top:11px;font-size:10px;letter-spacing:5px;color:#7f858c;font-weight:500;text-align:center}
+.marca-agua{position:absolute;right:-18px;top:155px;font-size:260px;line-height:1;color:#eef3f8;font-family:Georgia,serif;font-weight:bold;opacity:.85;transform:rotate(-8deg)}
+.foto-vertical{position:absolute;z-index:1;top:126px;left:86px;width:190px;height:205px;object-fit:cover;object-position:center 24%;border:3px solid #c7d0d8;border-radius:12px;background:#e7ebee}
+.credencial-vertical>h2{position:absolute;z-index:2;top:347px;left:48px;right:48px;margin:0;text-align:center;text-transform:uppercase;font-size:29px;line-height:1.05;color:#082a61;letter-spacing:.5px}
+.linea-nombre{position:absolute;top:423px;left:130px;width:100px;height:2px;background:#1976b8}.carrera-vertical{position:absolute;z-index:2;top:442px;left:54px;right:54px;margin:0;text-align:center;text-transform:uppercase;font-size:15px;line-height:1.25;letter-spacing:.7px;color:#071d47}
+.wordmark.inferior{top:auto;bottom:25px;left:40px;right:auto;font-size:20px}.wordmark.inferior small{font-size:7px;letter-spacing:3.1px;margin-top:8px}.esquina-ciclo{position:absolute;right:0;bottom:0;width:94px;height:103px;background:#082a61;color:#fff;border-radius:100% 0 0 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:18px}.esquina-ciclo span{font-size:12px}.esquina-ciclo strong{font-size:16px}
+.reverso .wordmark{left:50px;right:50px;text-align:center}.reverso-contenido{position:absolute;top:160px;left:28px;right:28px;display:grid;grid-template-columns:145px 1px 1fr;gap:20px;align-items:start}.qr-columna{text-align:center;color:#071d47;font-size:12px}.qr-vertical{width:145px;min-height:145px}.qr-columna p{margin-top:9px;line-height:1.2}.separador-vertical{height:175px;background:#397ea8}.datos-reverso h2{margin:0 0 6px;text-transform:uppercase;font-size:20px;line-height:1;color:#071d47}.carrera-reverso{margin:0 0 24px;text-transform:uppercase;font-size:12px;line-height:1.2}.dato-icono{display:flex;align-items:center;gap:9px;margin:12px 0;font-size:10px;overflow-wrap:anywhere}.dato-icono span{flex:0 0 25px;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#176fa7;color:#fff;font-size:13px}.dato-icono b{font-weight:500}
+.firma-direccion{position:absolute;top:365px;left:85px;right:85px;text-align:center}.firma-direccion img{width:150px;height:55px;object-fit:contain}.firma-direccion div{height:1px;background:#071d47}.firma-direccion span{font-size:12px}.pie-reverso{position:absolute;z-index:2;left:28px;right:28px;bottom:27px;display:flex;justify-content:space-between;align-items:flex-end;font-size:9px}.pie-reverso strong{font-size:11px}.pie-reverso span{color:#fff}.onda-inferior{position:absolute;right:-30px;bottom:-45px;width:215px;height:120px;background:#082a61;border-radius:100% 0 0 0;transform:rotate(-5deg)}.onda-inferior:before{content:"";position:absolute;left:15px;top:-12px;width:190px;height:18px;background:var(--tipo);border-radius:100% 0 0 0;opacity:.9}
+.etiqueta-tipo{margin:18px 0 0;font-weight:800;letter-spacing:1.5px;color:#fff}
+@media(max-width:820px){.credencial-set{gap:20px}.credencial-vertical{width:min(360px,88vw);height:570px;transform-origin:top center}.panel-credencial{overflow:hidden}}
+@media(max-width:410px){.credencial-vertical{width:330px;height:522px;transform:scale(.92);margin-bottom:-42px}.credencial-set{gap:10px}}
+
+
+/* V3: firma del alumno al frente y contacto de emergencia */
+.firma-alumno-frente{
+  position:absolute; left:50%; bottom:58px; transform:translateX(-50%);
+  width:58%; text-align:center; z-index:4;
+}
+.firma-alumno-frente img{display:block; width:100%; height:52px; object-fit:contain; margin:0 auto 2px;}
+.firma-alumno-frente div{height:1px; background:#082a61; width:100%; margin:0 auto 4px;}
+.firma-alumno-frente span{font-size:9px; letter-spacing:1.1px; color:#082a61; font-weight:700;}
+.firma-direccion.firma-vacia .espacio-firma-direccion{height:58px; width:100%;}
+.dato-icono.emergencia{align-items:flex-start;}
+.dato-icono.emergencia small{font-size:inherit; font-weight:600;}
+@media (max-width:600px){
+ .firma-alumno-frente{bottom:54px;width:60%;}
+ .firma-alumno-frente img{height:46px;}
+}
+
+/* V4: corrección de distribución de la credencial */
+.firma-alumno-frente{
+  left:38px; right:auto; bottom:22px; transform:none; width:175px; height:72px;
+  display:flex; flex-direction:column; justify-content:flex-end; text-align:center; z-index:5;
+}
+.firma-alumno-frente img{width:100%;height:43px;object-fit:contain;margin:0 0 1px;}
+.firma-alumno-frente div{width:100%;height:1px;margin:0 0 3px;background:#082a61;}
+.firma-alumno-frente span{font-size:8px;line-height:1;letter-spacing:1px;}
+.carrera-vertical{top:442px;left:48px;right:48px;max-height:42px;overflow:hidden;}
+.esquina-ciclo{z-index:6;}
+.firma-direccion{top:382px;}
+.datos-reverso .dato-icono{margin:10px 0;}
+@media(max-width:600px){.firma-alumno-frente{left:34px;bottom:22px;width:160px}.firma-alumno-frente img{height:40px;}}
+
+/* ===== Credencial V6: plantilla exacta suministrada ===== */
+.credencial-plantilla-set{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:28px;margin:24px auto;width:100%}
+.credencial-plantilla{--tipo:#1737a6;position:relative;width:330px;aspect-ratio:991/1529;overflow:hidden;background:#fff;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.18);font-family:Arial,Helvetica,sans-serif;color:#071d47}
+.credencial-plantilla.tipo-alumno{--tipo:#1737a6}.credencial-plantilla.tipo-administrativo{--tipo:#f4bd32}.credencial-plantilla.tipo-academico{--tipo:#ed1c24}
+.plantilla-fondo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
+/* El tipo de usuario modifica EXCLUSIVAMENTE la franja izquierda del frente. */
+.capa-color{position:absolute;z-index:1;pointer-events:none;display:none}
+.tipo-administrativo .capa-color-frente,.tipo-academico .capa-color-frente{display:block;background:var(--tipo)}
+.capa-color-frente{left:0;top:0;width:9.9%;height:51%;border-bottom-right-radius:72% 24%}
+.capa-color-reverso{display:none!important}
+.plantilla-foto{position:absolute;z-index:2;left:23.65%;top:22.55%;width:47.9%;height:33.55%;object-fit:cover;border-radius:7.5%;background:#ddd}
+.plantilla-datos-frente{position:absolute;z-index:2;left:15%;right:15%;top:57.4%;text-align:center;text-transform:uppercase;color:#082a61}
+.plantilla-datos-frente h2{margin:0;font-size:23px;line-height:1.03;letter-spacing:.5px;font-weight:800}
+.plantilla-datos-frente p{margin:38px 0 0;font-size:13px;line-height:1.15;font-weight:700;letter-spacing:.4px}
+.plantilla-firma-alumno{position:absolute;z-index:2;left:9.5%;bottom:5.7%;width:19.5%;height:7%;object-fit:contain;object-position:center bottom}
+.plantilla-ciclo{position:absolute;z-index:2;right:3.8%;bottom:4.2%;width:20%;text-align:center;color:#fff;line-height:1.05}
+.plantilla-ciclo span{display:block;font-size:11px}.plantilla-ciclo strong{display:block;font-size:16px}
+.plantilla-qr{position:absolute;z-index:2;left:6.65%;top:27.3%;width:29.45%;height:19.05%;display:grid;place-items:center;overflow:hidden;background:#fff}
+.plantilla-qr img,.plantilla-qr canvas{width:100%!important;height:100%!important;display:block}
+/* Datos del reverso: cada renglón queda centrado verticalmente con el icono impreso en la plantilla. */
+.plantilla-datos-reverso{position:absolute;z-index:2;inset:0;color:#071d47;pointer-events:none}
+.plantilla-datos-reverso .dato{position:absolute;left:55.2%;right:5.2%;height:5.2%;margin:0;display:flex;align-items:center;font-size:10.5px;line-height:1.12;font-weight:600;overflow-wrap:anywhere}
+.plantilla-datos-reverso .dato span{display:block;width:100%}
+.plantilla-datos-reverso .correo{top:27.35%}
+.plantilla-datos-reverso .matricula{top:34.55%}
+.plantilla-datos-reverso .emergencia{top:41.65%}
+.plantilla-firma-direccion{position:absolute;z-index:2;left:29%;right:28%;top:75%;height:9%;background:transparent}
+@media(max-width:820px){.credencial-plantilla-set{gap:20px}.credencial-plantilla{width:min(330px,88vw)}.panel-credencial{overflow:hidden}}
+@media(max-width:390px){.credencial-plantilla{width:310px}.credencial-plantilla-set{gap:14px}.plantilla-datos-frente h2{font-size:21px}.plantilla-datos-frente p{font-size:12px}.plantilla-datos-reverso .dato{font-size:10px}}
+
+
+
+/* ===== V7: plantillas específicas por perfil y distribución final ===== */
+/* Cada perfil usa su imagen de frente original. No se recolorean otros elementos. */
+.tipo-administrativo .capa-color-frente,
+.tipo-academico .capa-color-frente{display:none!important}
+
+/* Nombre, ID y carrera: separados para evitar cualquier superposición. */
+.plantilla-datos-frente{top:57.4%;left:13%;right:13%;height:23%;}
+.plantilla-datos-frente h2{margin:0;min-height:48px;display:flex;align-items:center;justify-content:center;}
+.plantilla-datos-frente .plantilla-id{position:absolute;top:58px;left:0;right:0;margin:0;font-size:12px;line-height:1.1;font-weight:800;letter-spacing:.5px;color:#071d47;text-transform:none;}
+.plantilla-datos-frente .plantilla-carrera{position:absolute;top:103px;left:0;right:0;margin:0;font-size:13px;line-height:1.18;font-weight:700;letter-spacing:.4px;color:#071d47;text-transform:uppercase;}
+
+/* Reverso: correo, contacto del alumno y contacto de emergencia, alineados con sus iconos. */
+.plantilla-datos-reverso .correo{top:27.35%}
+.plantilla-datos-reverso .matricula{top:34.55%}
+.plantilla-datos-reverso .emergencia{top:41.65%}
+@media(max-width:390px){
+ .plantilla-datos-frente .plantilla-id{font-size:11px;top:54px}
+ .plantilla-datos-frente .plantilla-carrera{font-size:12px;top:96px}
+}

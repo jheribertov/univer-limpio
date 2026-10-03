@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniverPass | Datos del aula</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="encabezado"><a class="marca" href="index.html"><img src="UniverPass.png" alt="Logo de UniverPass" class="logo-imagen" onerror="this.hidden=true"></a><a class="enlace-regreso" href="index.html">← Inicio</a></header>
+  <main class="contenido-principal">
+    <section class="panel panel-aula">
+      <div class="titulo-seccion"><div><h1>Datos del aula</h1><p>Información correspondiente a la credencial consultada.</p></div></div>
+      <div class="resumen-alumno"><img id="aulaFoto" alt="Fotografía"><div><span class="etiqueta">Alumno</span><h2 id="aulaNombre">—</h2><p id="aulaMatricula">—</p></div></div>
+      <div class="datos-aula"><div><span>Carrera</span><strong id="aulaCarrera">—</strong></div><div><span>Campus</span><strong id="aulaCampus">—</strong></div><div><span>Aula asignada</span><strong id="aulaNumero">—</strong></div></div>
+      <p id="sinConsulta" class="mensaje error" hidden>No se encontró una consulta activa.</p>
+      <div class="acciones"><a class="boton-pequeno boton-claro" href="kiosco.html">Escanear otra credencial</a><a class="boton-pequeno boton-principal" href="index.html">Finalizar</a></div>
+    </section>
+  </main>
+  <footer class="pie-pagina"><span>Protección de datos activa</span><span class="reloj"></span></footer>
+  <script src="js/common.js"></script><script src="js/aula.js"></script>
+</body>
+</html>

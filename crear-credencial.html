@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniverPass | Crear credencial</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <a class="marca" href="index.html"><img src="UniverPass.png" alt="Logo de UniverPass" class="logo-imagen" onerror="this.hidden=true"></a>
+    <a class="enlace-regreso" href="index.html">← Inicio</a>
+  </header>
+  <main class="contenido-principal contenido-formulario">
+    <section class="panel">
+      <div class="titulo-seccion"><div><h1>Crear credencial</h1><p>Todos los campos son obligatorios.</p></div></div>
+      <form id="formCredencial" class="formulario" novalidate>
+        <div class="campo campo-completo"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" required autocomplete="name"></div>
+        <div class="campo"><label for="matricula">Matrícula</label><input id="matricula" name="matricula" required maxlength="20"></div>
+        <div class="campo"><label for="correo">Correo institucional</label><input id="correo" name="correo" type="email" required autocomplete="email"></div>
+        <div class="campo"><label for="contactoAlumno">Contacto del alumno</label><input id="contactoAlumno" name="contactoAlumno" type="tel" required placeholder="Ejemplo: 33 1234 5678" autocomplete="tel"></div>
+        <div class="campo"><label for="carrera">Carrera</label><input id="carrera" name="carrera" required value="Ingeniería en Sistemas Computacionales"></div>
+        <div class="campo"><label for="campus">Campus</label><input id="campus" name="campus" required value="Univer Ávila Camacho"></div>
+        <div class="campo"><label for="aula">Aula</label><input id="aula" name="aula" required placeholder="Ejemplo: A-204"></div>
+        <div class="campo"><label for="contactoEmergencia">Contacto de emergencia</label><input id="contactoEmergencia" name="contactoEmergencia" type="tel" required placeholder="Ejemplo: 33 1234 5678" autocomplete="tel" inputmode="tel"></div>
+        <div class="campo campo-completo bloque-captura">
+          <label>Fotografía</label>
+          <p class="ayuda">Permite el acceso a la cámara y toma tu fotografía.</p>
+          <div class="captura-foto">
+            <div class="camara-registro"><video id="videoFoto" playsinline muted></video><div class="guia-rostro" aria-hidden="true"></div><span id="camaraFotoInactiva">Cámara inactiva</span></div>
+            <div class="foto-preview"><img id="vistaFoto" alt="Vista previa de la fotografía"><span id="fotoVacia">Sin fotografía</span></div>
+          </div>
+          <div class="acciones acciones-foto"><button id="activarCamaraFoto" class="boton-pequeno boton-claro" type="button">Activar cámara</button><button id="tomarFoto" class="boton-pequeno boton-principal" type="button" disabled>Tomar fotografía</button></div>
+        </div>
+
+        <div class="campo campo-completo bloque-captura">
+          <label>Firma</label><p class="ayuda">Firma dentro del recuadro usando el mouse o el dedo.</p>
+          <canvas id="lienzoFirma" width="700" height="180"></canvas>
+          <button id="limpiarFirma" class="boton-texto" type="button">Limpiar firma</button>
+        </div>
+
+        <p id="mensajeFormulario" class="mensaje" role="alert"></p>
+        <div class="acciones campo-completo"><a class="boton-pequeno boton-claro" href="index.html">Cancelar</a><button class="boton-pequeno boton-principal" type="submit">Guardar y mostrar credencial</button></div>
+      </form>
+    </section>
+  </main>
+  <footer class="pie-pagina"><span>Protección de datos activa</span><span class="reloj"></span></footer>
+  <script src="js/common.js"></script><script src="js/registro.js"></script>
+</body>
+</html>

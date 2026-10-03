@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniverPass | Kiosco</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="encabezado"><a class="marca" href="index.html"><img src="UniverPass.png" alt="Logo de UniverPass" class="logo-imagen" onerror="this.hidden=true"></a><a class="enlace-regreso" href="index.html">← Inicio</a></header>
+  <main class="contenido-principal">
+    <section class="panel panel-kiosco">
+      <div class="titulo-seccion"><div><h1>Escanear credencial</h1><p>Coloca el código QR frente a la cámara.</p></div></div>
+      <div class="visor"><video id="video" playsinline muted></video><div class="marco-qr"></div><span id="camaraInactiva">Solicitando acceso a la cámara…</span></div>
+      <div class="consulta-oculta" hidden><form id="formConsulta"><input id="consultaMatricula"><button type="submit">Consultar</button></form></div>
+      <button id="probarEjemplo" class="boton-texto" type="button">Usar la credencial guardada en este navegador</button>
+      <p id="mensajeKiosco" class="mensaje" role="alert"></p>
+    </section>
+  </main>
+  <footer class="pie-pagina"><span>Protección de datos activa</span><span class="reloj"></span></footer>
+  <script src="js/common.js"></script><script src="js/kiosco.js"></script>
+</body>
+</html>
