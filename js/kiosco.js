@@ -13,7 +13,7 @@ async function consultarCredencial(valor) {
     }
 
     try {
-const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
+const respuesta = await fetch(`${URL_BACKEND}?sheet=REGISTROS`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ codigo: matricula })
