@@ -1,5 +1,5 @@
 const video = document.getElementById("video");
-const URL_BACKEND = "univer-credencial-production.up.railway.app";
+const URL_BACKEND = "https://univer-credencial-production.up.railway.app";
 const mensaje = document.getElementById("mensajeKiosco");
 const camaraInactiva = document.getElementById("camaraInactiva");
 let flujoCamara = null;
