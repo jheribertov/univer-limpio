@@ -13,11 +13,11 @@ async function consultarCredencial(valor) {
     }
 
     try {
-       const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ codigo })
-});
+const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ codigo: matricula })
+        });
         const resultado = await respuesta.json();
 
         if (resultado.valido) {
@@ -33,6 +33,7 @@ async function consultarCredencial(valor) {
         console.error(error);
     }
 }
+
 
 async function iniciarCamara() {
     if (!navigator.mediaDevices?.getUserMedia) return mostrarError("Este navegador no permite utilizar la cámara.");
