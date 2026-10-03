@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const path = require('path');
 
 const app = express();
 
@@ -13,12 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 // URL de tu Google Apps Script vinculada a Google Sheets
 const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbwxlzV1h8v15v230s3Q158o4c3aZ0a82K98o/exec";
 
-// Ruta de prueba GET
+// 2. Servir el frontend automáticamente al entrar a la raíz del sitio
 app.get('/', (req, res) => {
-    res.send("Servidor UNIVER con Google Sheets funcionando");
+    res.sendFile(path.join(__dirname, 'index.html')); // Cambia 'index.html' si tu archivo principal tiene otro nombre
 });
 
-// 2. Ruta de validación conectada a Google Sheets (DEBE IR ANTES DE LOS ESTÁTICOS)
+// 3. Ruta de validación conectada a Google Sheets (DEBE IR ANTES DE LOS ESTÁTICOS)
 app.post('/api/validar', async (req, res) => {
     try {
         const { codigo } = req.body;
@@ -60,7 +61,7 @@ app.post('/api/validar', async (req, res) => {
     }
 });
 
-// 3. Archivos estáticos al final para que no intercepten las rutas de la API
+// 4. Archivos estáticos de apoyo (CSS, imágenes, scripts secundarios)
 app.use(express.static(__dirname));
 
 // Puerto dinámico para Railway
