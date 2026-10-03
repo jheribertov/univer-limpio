@@ -29,3 +29,27 @@ function mostrarError(texto){ mensaje.textContent=texto; mensaje.className="mens
 document.getElementById("formConsulta").addEventListener("submit",e=>{e.preventDefault();consultarCredencial(document.getElementById("consultaMatricula").value)});
 document.getElementById("probarEjemplo").addEventListener("click",()=>{const datos=UniverPass.obtener();if(datos)consultarCredencial(datos.matricula);else mostrarError("Primero crea una credencial desde la página principal.")});
 window.addEventListener("DOMContentLoaded",iniciarCamara); window.addEventListener("beforeunload",detenerCamara);
+// --- Entrada manual de matrícula ---
+const manualInput = document.getElementById('manualInput');
+const btnManual = document.getElementById('btnManual');
+
+if (btnManual && manualInput) {
+  btnManual.addEventListener('click', () => {
+    const matricula = manualInput.value.trim();
+    if (matricula) {
+      // Llamamos a la misma función que procesa la consulta de la credencial
+      consultarCredencial(matricula); 
+      manualInput.value = '';
+    }
+  });
+
+  manualInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const matricula = manualInput.value.trim();
+      if (matricula) {
+        consultarCredencial(matricula);
+        manualInput.value = '';
+      }
+    }
+  });
+}
