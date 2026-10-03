@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // URL de tu Google Apps Script vinculada a Google Sheets
-const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbwaMf7psXO4upomYh0BubjiIMRWhxZw0eqWoJiqTrSq_9pMkBKoxl2WF6TMvOehxv0mWA/exec";
+const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbytxzYhfQVtw4wWJ7FKoKzEUxdFY_iRowRdEi1VrqhoTZWi-cF_ebQbfhZb1nxveoxuTA/exec";
 
 // 2. Servir el frontend automáticamente al entrar a la raíz del sitio
 app.get('/', (req, res) => {
