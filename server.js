@@ -16,7 +16,7 @@ const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.googl
 
 // 2. Servir el frontend automáticamente al entrar a la raíz del sitio
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html')); // Cambia 'index.html' si tu archivo principal tiene otro nombre
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // 3. Ruta de validación conectada a Google Sheets (DEBE IR ANTES DE LOS ESTÁTICOS)
@@ -27,14 +27,23 @@ app.post('/api/validar', async (req, res) => {
             return res.status(400).json({ valido: false, mensaje: "No se recibió código" });
         }
 
-        // Consultamos a Google Sheets mediante la Web App
+        // Consultamos a Google Sheets mediante la Web App siguiendo las redirecciones
         const respuestaGoogle = await fetch(GOOGLE_SCRIPT_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ codigo })
+            body: JSON.stringify({ codigo }),
+            redirect: "follow"
         });
 
-        const resultado = await respuestaGoogle.json();
+        const textoRespuesta = await respuestaGoogle.text();
+        let resultado;
+        
+        try {
+            resultado = JSON.parse(textoRespuesta);
+        } catch (e) {
+            console.error("Google Apps Script no devolvió un JSON válido:", textoRespuesta);
+            return res.status(500).json({ valido: false, mensaje: "Error de respuesta desde Google Sheets" });
+        }
 
         if (!resultado.encontrado) {
             return res.json({ valido: false, mensaje: "Credencial no encontrada" });
