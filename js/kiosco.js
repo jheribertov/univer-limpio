@@ -13,12 +13,11 @@ async function consultarCredencial(valor) {
     }
 
     try {
-        const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ matricula })
-        });
-
+       const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ matricula })
+});
         const resultado = await respuesta.json();
 
         if (resultado.valido) {
