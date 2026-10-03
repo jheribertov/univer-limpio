@@ -16,7 +16,7 @@ async function consultarCredencial(valor) {
        const respuesta = await fetch(`${URL_BACKEND}/api/validar`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ matricula })
+    body: JSON.stringify({ codigo })
 });
         const resultado = await respuesta.json();
 
