@@ -1,4 +1,4 @@
-cconst express = require('express');
+const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 require('dotenv').config();
@@ -61,6 +61,7 @@ app.post('/api/validar', async (req, res) => {
     }
 });
 
-app.listen(puerto, () => {
-    console.log(`🚀 Servidor activo en puerto ${puerto}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
